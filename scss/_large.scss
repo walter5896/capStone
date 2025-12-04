@@ -1,0 +1,83 @@
+/* ------------------- LARGE SCREENS ------------------- */
+@media screen and (min-width: 961px) {
+
+  /* Container max width */
+  header, nav, main {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  /* Hide hamburger menu */
+  #hamburgerBtn {
+    display: none;
+  }
+
+  /* Navigation always visible */
+  nav ul {
+    display: flex !important;
+    justify-content: flex-end;
+    background-color: transparent;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    color: $primaryColor;
+
+    &:hover {
+      background-color: $accentColor;
+      color: white;
+    }
+  }
+
+  /* Flip cards 4 per row */
+  .flip-cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    .flip-card {
+      width: calc(25% - 0.75rem); // 4 cards per row
+      max-width: none;
+    }
+  }
+
+      p {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+      }
+
+  /* Main headings */
+  main h1 {
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+
+  /* Adjust hero text */
+  .hero div {
+    padding: 1rem 2rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* NAVIGATION STUFF GOES HERE  */
+
+nav ul {
+ 
+
+  li.active a {
+    color: black;
+  }
+}

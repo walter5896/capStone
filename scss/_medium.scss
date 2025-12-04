@@ -1,0 +1,38 @@
+/* ------------------- MEDIUM SCREENS ------------------- */
+@media screen and (min-width: 600px) and (max-width: 960px) {
+
+  /* Hamburger visible */
+  #hamburgerBtn {
+    display: block;
+  }
+
+  nav ul {
+    display: none; /* start hidden, toggle via JS */
+  }
+
+  /* Flip cards 2 per row */
+  .flip-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    .flip-card {
+      width: calc(50% - 0.75rem); // 2 per row with gap
+      max-width: none;
+    }
+  }
+
+  /* Navigation links larger for medium screens */
+  nav ul li a {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+header {
+ 
+  img {
+    width: auto;
+    height: 100px;
+  }
+}

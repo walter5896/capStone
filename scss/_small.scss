@@ -1,0 +1,354 @@
+
+
+/* ------------------- BASE ------------------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $defaultFont;
+  font-weight: $lightWeight;
+  min-width: 320px;
+  margin: 0;
+  background-color: #fafafa;
+}
+
+h1, h2, h3, span {
+  font-family: $headingFont;
+}
+
+/* ------------------- HEADER ------------------- */
+#headerWrapper {
+  border-bottom: 1px solid $greyColor;
+  background-color: black;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 50px auto 44px;
+  align-items: center;
+  text-align: center;
+  column-gap: $gutter;
+  padding: 0.5rem $gutter;
+
+  img {
+    width: auto;
+    height: 75px;
+  }
+
+  .header-text {
+    display: flex;
+    
+    flex-direction: column;
+    font-size: 1.4rem;
+    color: #fff;
+
+    small {
+      font-size: 0.75rem;
+      color: #eee;
+    }
+  }
+}
+
+/* ------------------- NAVIGATION ------------------- */
+#hamburgerBtn {
+  display: block;
+  position: relative;
+  height: 44px;
+  width: 44px;
+  cursor: pointer;
+
+  .top, .bottom {
+    position: absolute;
+    height: 2.4px;
+    width: 50%;
+    left: 25%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .top { top: 33%; }
+  .bottom { top: 62%; }
+
+  &.open {
+    .top {
+      transform: rotate(45deg);
+      top: 48%;
+      width: 60%;
+      left: 20%;
+    }
+    .bottom {
+      transform: rotate(-45deg);
+      top: 48%;
+      width: 60%;
+      left: 20%;
+    }
+  }
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  background-color: $secondaryColor;
+
+  li a {
+    color: #fff;
+    display: block;
+    padding: 0.75rem $gutter;
+    text-decoration: none;
+    border-bottom: 1px solid $greyColor;
+    transition: color 0.3s;
+  }
+
+  li.active a {
+    color: $accentColor;
+  }
+
+  &.open {
+    display: block;
+  }
+}
+
+nav ul.open li a:hover {
+  color: $accentColor;
+}
+
+/* ------------------- HERO ------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  max-height: 350px;
+  
+
+  video {
+    width: 100%;
+    height: auto;
+    
+  }
+
+  div {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    min-height: 90px;
+    color: white;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+    padding: 0.5rem $gutter;
+
+    h2 {
+      text-shadow: 0 0 2px black;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    h3 {
+      text-shadow: 0 0 2px black;
+      font-size: 1rem;
+      margin: 0;
+    }
+    p {
+      text-shadow: 0 0 2px black;
+      font-size: 0.85rem;
+      color: white;
+    }
+  }
+}
+
+/* ------------------- FLIP CARDS ------------------- */
+.flip-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1rem;
+
+  .flip-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    perspective: 1000px;
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      &.flipped {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flip-card-back {
+      background-color: #fff;
+      color: #333;
+      transform: rotateY(180deg);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h3 {
+        font-family: $headingFont;
+        color: $primaryColor;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: .7rem;
+        
+        line-height: 1.4;
+        
+      }
+
+      .more-text { display: none; }
+
+      .read-more {
+        background-color: $primaryColor;
+        color: #fff;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        align-self: center;
+
+        &:hover {
+          background-color: darken($primaryColor, 10%);
+        }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+#mainWrapper main h1 {
+  text-align: center;
+}
+
+//clients
+.clients {
+  text-align: center;
+  padding: 2rem 1rem;
+
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    img {
+      width: 100px;
+      margin: auto;
+      filter: grayscale(100%);
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .clients .client-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .clients .client-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+/* ------------------- FOOTER ------------------- */
+#footerWrapper footer {
+  text-align: center;
+  
+
+  /* PHONE NUMBER — bigger + clickable */
+  .footer-phone {
+    font-size: 1.4rem;       // larger phone number
+    font-weight: 600;
+    margin: 0.75rem 0;
+
+    a {
+      color: #000;           // matches your footer link color style
+      text-decoration: none;
+
+      &:hover {
+        color: $accentColor;
+      }
+    }
+  }
+
+  /* COPYRIGHT LINE — slightly larger */
+  .footer-copy {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0.25rem 0 1rem 0;
+  }
+
+  /* DEFAULT PARAGRAPHS */
+  p {
+    margin: 0.5rem 0;
+  }
+
+  /* LOCATION CARDS */
+  .footer-locations {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .location-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.75rem;
+      border-radius: 6px;
+
+      h4 {
+        margin: 0 0 0.25rem;
+        font-size: 1rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  /* FOOTER LINKS */
+  a {
+    color: #000000;
+    text-decoration: none;
+
+    &:hover {
+      color: $accentColor;
+    }
+  }
+}
