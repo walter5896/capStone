@@ -1,38 +1,61 @@
-/* ------------------- MEDIUM SCREENS ------------------- */
+/* -------------------------------------
+   MEDIUM SCREENS (600px–960px)
+-------------------------------------- */
 @media screen and (min-width: 600px) and (max-width: 960px) {
 
-  /* Hamburger visible */
+  /* HEADER */
+  header img {
+    height: auto;
+  }
+
+  /* NAVIGATION: Still hamburger */
   #hamburgerBtn {
     display: block;
   }
 
   nav ul {
-    display: none; /* start hidden, toggle via JS */
+    display: none; /* toggled by JS */
   }
 
-  /* Flip cards 2 per row */
-  .flip-cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1.5rem;
+  nav ul li a {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
 
-    .flip-card {
-      width: calc(50% - 0.75rem); // 2 per row with gap
-      max-width: none;
+  /* HERO — overlay moves LEFT */
+  .hero div {
+    right: auto;
+    left: 10px;
+    width: 50%;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.25)
+    );
+
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
+    p  { font-size: 1rem;   }
+  }
+
+  /* SERVICE CARDS — 2 columns */
+  .service-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    .card img {
+      height: 200px;
     }
   }
 
-  /* Navigation links larger for medium screens */
-  nav ul li a {
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
+  /* CLIENTS — 3 columns */
+  .clients .client-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-}
-header {
- 
-  img {
-    width: auto;
-    height: 100px;
+
+  /* FOOTER */
+  #footerWrapper footer {
+    .footer-phone { font-size: 1.5rem; }
+    .footer-copy  { font-size: 1.15rem; }
   }
 }

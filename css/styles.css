@@ -301,7 +301,9 @@ template {
   display: none;
 }
 
-/* ------------------- BASE ------------------- */
+/* -------------------------------------
+   GLOBAL BASE
+-------------------------------------- */
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -323,7 +325,9 @@ h1, h2, h3, span {
   font-family: "JetBrains Mono", monospace;
 }
 
-/* ------------------- HEADER ------------------- */
+/* -------------------------------------
+   HEADER
+-------------------------------------- */
 #headerWrapper {
   border-bottom: 1px solid #ccc;
   background-color: black;
@@ -340,7 +344,7 @@ header {
 }
 header img {
   width: auto;
-  height: 75px;
+  height: auto;
 }
 header .header-text {
   display: flex;
@@ -353,7 +357,9 @@ header .header-text small {
   color: #eee;
 }
 
-/* ------------------- NAVIGATION ------------------- */
+/* -------------------------------------
+   MOBILE NAVIGATION
+-------------------------------------- */
 #hamburgerBtn {
   display: block;
   position: relative;
@@ -361,7 +367,8 @@ header .header-text small {
   width: 44px;
   cursor: pointer;
 }
-#hamburgerBtn .top, #hamburgerBtn .bottom {
+#hamburgerBtn .top,
+#hamburgerBtn .bottom {
   position: absolute;
   height: 2.4px;
   width: 50%;
@@ -414,7 +421,9 @@ nav ul.open li a:hover {
   color: #003cff;
 }
 
-/* ------------------- HERO ------------------- */
+/* -------------------------------------
+   HERO — SMALL SCREEN (OVERLAY RIGHT)
+-------------------------------------- */
 .hero {
   position: relative;
   overflow: hidden;
@@ -423,15 +432,17 @@ nav ul.open li a:hover {
 .hero video {
   width: 100%;
   height: auto;
+  display: block;
 }
 .hero div {
   position: absolute;
   top: 10px;
   right: 10px;
-  min-height: 90px;
+  width: 55%;
   color: white;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.6) 100%);
-  padding: 0.5rem 10px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 .hero div h2 {
   text-shadow: 0 0 2px black;
@@ -441,96 +452,66 @@ nav ul.open li a:hover {
 .hero div h3 {
   text-shadow: 0 0 2px black;
   font-size: 1rem;
-  margin: 0;
+  margin: 0.2rem 0;
 }
 .hero div p {
   text-shadow: 0 0 2px black;
   font-size: 0.85rem;
-  color: white;
+  margin: 0.2rem 0 0;
 }
 
-/* ------------------- FLIP CARDS ------------------- */
-.flip-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin: 1rem;
-}
-.flip-cards .flip-card {
-  width: 100%;
-  aspect-ratio: 1/1;
-  perspective: 1000px;
-}
-.flip-cards .flip-card .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* -------------------------------------
+   SERVICE CARDS (NEW)
+-------------------------------------- */
+.service-cards {
+  margin: 2rem 1rem;
   text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.service-cards h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  color: #1d295f;
+}
+.service-cards .card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s ease;
 }
-.flip-cards .flip-card .flip-card-inner.flipped {
-  transform: rotateY(180deg);
+.service-cards .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
-.flip-cards .flip-card .flip-card-front,
-.flip-cards .flip-card .flip-card-back {
-  position: absolute;
+.service-cards .card img {
   width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  overflow: hidden;
-}
-.flip-cards .flip-card .flip-card-front img {
-  width: 100%;
-  height: 100%;
+  height: 200px; /* fixes 300x200 low-res images */
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
-.flip-cards .flip-card .flip-card-back {
-  background-color: #fff;
-  color: #333;
-  transform: rotateY(180deg);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.flip-cards .flip-card .flip-card-back h3 {
-  font-family: "JetBrains Mono", monospace;
+.service-cards .card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
   color: #1d295f;
-  margin-bottom: 0.5rem;
 }
-.flip-cards .flip-card .flip-card-back p {
-  font-size: 0.7rem;
-  line-height: 1.4;
+.service-cards .card ul {
+  margin: 0;
+  padding-left: 1.2rem;
 }
-.flip-cards .flip-card .flip-card-back .more-text {
-  display: none;
-}
-.flip-cards .flip-card .flip-card-back .read-more {
-  background-color: #1d295f;
-  color: #fff;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
+.service-cards .card ul li {
+  margin-bottom: 0.4rem;
   font-size: 0.9rem;
-  align-self: center;
-}
-.flip-cards .flip-card .flip-card-back .read-more:hover {
-  background-color: rgb(17.0725806452, 24.1370967742, 55.9274193548);
-}
-.flip-cards .flip-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-#mainWrapper main h1 {
-  text-align: center;
-}
-
+/* -------------------------------------
+   CLIENTS SECTION
+-------------------------------------- */
 .clients {
   text-align: center;
   padding: 2rem 1rem;
@@ -546,24 +527,21 @@ nav ul.open li a:hover {
   filter: grayscale(100%);
 }
 
-@media (min-width: 600px) {
-  .clients .client-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+#mainWrapper h2 {
+  text-align: center;
+  font-size: 1.8rem;
 }
-@media (min-width: 960px) {
-  .clients .client-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
+
+#mainWrapper h1 {
+  text-align: center;
+  font-size: 1.8rem;
 }
-/* ------------------- FOOTER ------------------- */
+
+/* -------------------------------------
+   FOOTER
+-------------------------------------- */
 #footerWrapper footer {
   text-align: center;
-  /* PHONE NUMBER — bigger + clickable */
-  /* COPYRIGHT LINE — slightly larger */
-  /* DEFAULT PARAGRAPHS */
-  /* LOCATION CARDS */
-  /* FOOTER LINKS */
 }
 #footerWrapper footer .footer-phone {
   font-size: 1.4rem;
@@ -605,7 +583,7 @@ nav ul.open li a:hover {
   font-size: 0.85rem;
 }
 #footerWrapper footer a {
-  color: #000000;
+  color: #000;
   text-decoration: none;
 }
 #footerWrapper footer a:hover {
@@ -613,106 +591,148 @@ nav ul.open li a:hover {
 }
 
 @media only screen and (min-width: 35rem) {
-  /* ------------------- MEDIUM SCREENS ------------------- */
+  /* -------------------------------------
+     MEDIUM SCREENS (600px–960px)
+  -------------------------------------- */
 }
 @media only screen and (min-width: 35rem) and (min-width: 600px) and (max-width: 960px) {
-  /* Hamburger visible */
+  /* HEADER */
+  header img {
+    height: auto;
+  }
+  /* NAVIGATION: Still hamburger */
   #hamburgerBtn {
     display: block;
   }
   nav ul {
-    display: none; /* start hidden, toggle via JS */
-  }
-  /* Flip cards 2 per row */
-  .flip-cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-  .flip-cards .flip-card {
-    width: calc(50% - 0.75rem);
-    max-width: none;
-  }
-  /* Navigation links larger for medium screens */
-  nav ul li a {
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
-  }
-}
-@media only screen and (min-width: 35rem) {
-  header img {
-    width: auto;
-    height: 100px;
-  }
-}
-@media only screen and (min-width: 64rem) {
-  /* ------------------- LARGE SCREENS ------------------- */
-  /* NAVIGATION STUFF GOES HERE  */
-}
-@media only screen and (min-width: 64rem) and (min-width: 961px) {
-  /* Container max width */
-  header, nav, main {
-    max-width: 1200px;
-    margin: auto;
-  }
-  /* Hide hamburger menu */
-  #hamburgerBtn {
-    display: none;
-  }
-  /* Navigation always visible */
-  nav ul {
-    display: flex !important;
-    justify-content: flex-end;
-    background-color: transparent;
+    display: none; /* toggled by JS */
   }
   nav ul li a {
     font-size: 1rem;
     padding: 0.75rem 1.25rem;
-    border: none;
-    color: #1d295f;
   }
-  nav ul li a:hover {
-    background-color: #003cff;
-    color: white;
-  }
-  /* Flip cards 4 per row */
-  .flip-cards {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-  .flip-cards .flip-card {
-    width: calc(25% - 0.75rem);
-    max-width: none;
-  }
-  p {
-    font-size: 0.7rem;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-  }
-  /* Main headings */
-  main h1 {
-    font-size: 2rem;
-    padding: 1rem 0;
-  }
-  /* Adjust hero text */
+  /* HERO — overlay moves LEFT */
   .hero div {
-    padding: 1rem 2rem;
+    right: auto;
+    left: 10px;
+    width: 50%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
   }
   .hero div h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   .hero div h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   .hero div p {
     font-size: 1rem;
   }
+  /* SERVICE CARDS — 2 columns */
+  .service-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .service-cards .card img {
+    height: 200px;
+  }
+  /* CLIENTS — 3 columns */
+  .clients .client-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* FOOTER */
+  #footerWrapper footer .footer-phone {
+    font-size: 1.5rem;
+  }
+  #footerWrapper footer .footer-copy {
+    font-size: 1.15rem;
+  }
 }
 @media only screen and (min-width: 64rem) {
+  /* -------------------------------------
+     LARGE SCREENS (961px+)
+  -------------------------------------- */
+}
+@media only screen and (min-width: 64rem) and (min-width: 961px) {
+  /* STANDARD PAGE WIDTH */
+  header, nav, main, .service-cards, .clients {
+    max-width: 1200px;
+    margin: auto;
+  }
+  /* HEADER LOGO LARGER */
+  header img {
+    height: auto;
+  }
+  /* NAVIGATION — horizontal menu */
+  #hamburgerBtn {
+    display: none;
+  }
+  nav ul {
+    display: flex !important;
+    justify-content: flex-end;
+    gap: 1rem;
+    background: transparent;
+  }
+  nav ul li a {
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+    color: #1d295f;
+    transition: 0.2s;
+  }
+  nav ul li a:hover {
+    background: black;
+    color: #fff;
+    border-radius: 6px;
+  }
   nav ul li.active a {
-    color: black;
+    color: #003cff;
+  }
+  /* HERO — overlay goes to BOTTOM */
+  .hero {
+    max-height: 500px;
+  }
+  .hero div {
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.25));
+  }
+  .hero div h2 {
+    font-size: 2.2rem;
+  }
+  .hero div h3 {
+    font-size: 1.4rem;
+  }
+  .hero div p {
+    font-size: 1.1rem;
+  }
+  /* SERVICE CARDS — 4 across */
+  .service-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+  .service-cards .card img {
+    height: 220px;
+  }
+  /* CLIENTS — 6 columns */
+  .clients .client-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  /* FOOTER TWEAKS */
+  #footerWrapper footer {
+    font-size: 1.05rem;
+  }
+  #footerWrapper footer .footer-locations {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+  #footerWrapper footer .footer-locations .location-card {
+    width: 200px;
   }
 }

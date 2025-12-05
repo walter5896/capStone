@@ -1,83 +1,102 @@
-/* ------------------- LARGE SCREENS ------------------- */
+/* -------------------------------------
+   LARGE SCREENS (961px+)
+-------------------------------------- */
 @media screen and (min-width: 961px) {
 
-  /* Container max width */
-  header, nav, main {
+  /* STANDARD PAGE WIDTH */
+  header, nav, main, .service-cards, .clients {
     max-width: 1200px;
     margin: auto;
   }
 
-  /* Hide hamburger menu */
+  /* HEADER LOGO LARGER */
+  header img {
+    height: auto;
+  }
+
+  /* NAVIGATION — horizontal menu */
   #hamburgerBtn {
     display: none;
   }
 
-  /* Navigation always visible */
   nav ul {
     display: flex !important;
     justify-content: flex-end;
-    background-color: transparent;
-  }
+    gap: 1rem;
+    background: transparent;
 
-  nav ul li a {
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
-    border: none;
-    color: $primaryColor;
+    li a {
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.1rem;
+      color: $primaryColor;
+      transition: 0.2s;
 
-    &:hover {
-      background-color: $accentColor;
-      color: white;
-    }
-  }
-
-  /* Flip cards 4 per row */
-  .flip-cards {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 1.5rem;
-
-    .flip-card {
-      width: calc(25% - 0.75rem); // 4 cards per row
-      max-width: none;
-    }
-  }
-
-      p {
-        font-size: 0.7rem;
-        line-height: 1.4;
-        margin-bottom: 0.5rem;
+      &:hover {
+        background: black;
+        color: #fff;
+        border-radius: 6px;
       }
-
-  /* Main headings */
-  main h1 {
-    font-size: 2rem;
-    padding: 1rem 0;
-  }
-
-  /* Adjust hero text */
-  .hero div {
-    padding: 1rem 2rem;
-
-    h2 {
-      font-size: 2rem;
-    }
-    h3 {
-      font-size: 1.25rem;
-    }
-    p {
-      font-size: 1rem;
     }
   }
-}
 
-/* NAVIGATION STUFF GOES HERE  */
+  nav ul li.active a {
+    color: $accentColor;
+  }
 
-nav ul {
- 
+  /* HERO — overlay goes to BOTTOM */
+  .hero {
+    max-height: 500px;
 
-  li.active a {
-    color: black;
+    div {
+      bottom: 0;
+      top: auto;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      text-align: center;
+
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.25)
+      );
+
+      h2 { font-size: 2.2rem; }
+      h3 { font-size: 1.4rem; }
+      p  { font-size: 1.1rem; }
+    }
+  }
+
+  /* SERVICE CARDS — 4 across */
+  .service-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+
+    .card img {
+      height: 220px;
+    }
+  }
+
+  /* CLIENTS — 6 columns */
+  .clients .client-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  /* FOOTER TWEAKS */
+  #footerWrapper footer {
+    font-size: 1.05rem;
+
+    .footer-locations {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+
+      .location-card {
+        width: 200px;
+      }
+    }
   }
 }
