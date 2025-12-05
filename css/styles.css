@@ -344,7 +344,7 @@ header {
 }
 header img {
   width: auto;
-  height: auto;
+  height: 60px;
 }
 header .header-text {
   display: flex;
@@ -598,7 +598,7 @@ nav ul.open li a:hover {
 @media only screen and (min-width: 35rem) and (min-width: 600px) and (max-width: 960px) {
   /* HEADER */
   header img {
-    height: auto;
+    height: 65px;
   }
   /* NAVIGATION: Still hamburger */
   #hamburgerBtn {
@@ -660,7 +660,7 @@ nav ul.open li a:hover {
   }
   /* HEADER LOGO LARGER */
   header img {
-    height: auto;
+    height: 75px;
   }
   /* NAVIGATION — horizontal menu */
   #hamburgerBtn {
